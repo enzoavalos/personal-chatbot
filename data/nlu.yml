@@ -1,0 +1,364 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - buenas
+    - buen dia
+    - buenos dias
+    - buenas tardes
+    - como va
+    - buenas noches
+
+- intent: goodbye
+  examples: |
+    - chau
+    - hasta luego
+    - hasta mañana
+    - nos vemos
+    - buenas noches
+    - gracias por todo
+    - hasta la proxima
+    - hasta pronto
+    - nos estamos viendo
+    - chau los dejo
+
+- intent: affirm
+  examples: |
+    - si
+    - por supuesto
+    - claro
+    - obvio
+    - me parece bien
+    - correcto
+    - bueno
+    - ok
+    - tenes razon
+
+- intent: deny
+  examples: |
+    - no
+    - nunca
+    - no lo creo
+    - ni ahi
+    - no me gusta
+    - de ninguna manera
+    - no gracias
+    - nop
+
+- intent: mood_great
+  examples: |
+    - genial
+    - bien
+    - muy bien
+    - buenisimo
+    - joya
+    - increible
+    - super bien
+    - me siento bien
+    - estoy bien
+    - feliz
+    - estoy feliz
+    - contento
+    - animado
+    - todo bien
+    - todo en orden
+
+- intent: mood_unhappy
+  examples: |
+    - mal
+    - deprimido
+    - triste
+    - me siento triste
+    - estoy enfermo
+    - tuve mal dia
+    - estoy triste
+    - infeliz
+    - nada bien
+    - estoy decepcionado
+    - no me siento bien
+    - muy triste
+
+- intent: mood_angry
+  examples: |
+    - enojado
+    - furioso
+    - re caliente
+    - muy enojado
+    - muy molesto
+
+- intent: bot_challenge
+  examples: |
+    - sos un bot?
+    - sos humano?
+    - sos una persona?
+    - hablo con un bot?
+    - estoy hablando con un bot?
+    - estoy hablando con un humano?
+    - que sos?
+
+- intent: thanks_received
+  examples: |
+    - gracias
+    - te agradezco
+    - muchas gracias
+    - muchisimas gracias
+    - graciela
+    - grax
+    - me sirvio mucho
+    - me sirvio
+    - esta muy bueno
+
+- intent: its_better
+  examples: |
+    - mejor
+    - mucho mejor
+    - estoy mejor
+    - mas tranquilo
+    - mejorando
+    - bastante bien
+    - bastante mejor
+
+- intent: dont_know
+  examples: |
+    - no lo se
+    - no sabria
+    - no se
+    - no estoy seguro
+    - ni idea
+    - no tengo idea
+
+- intent: great_joke
+  examples: |
+    - jaja
+    - buenisimo
+    - muy buena
+    - que gracioso
+    - muy gracioso
+    - que divertido
+    - que buen chiste
+    - me encanto
+    - me gusto mucho
+
+- intent: user_disliked
+  examples: |
+    - no me gusto
+    - no me parece bien
+    - muy mala
+    - malisimo
+    - horrible
+    - no me gusta
+    - malisima
+    - feisima
+    - feisimo
+    - muy malo
+    - no me gusto nada
+    - no me sirve
+    - no me sirvio
+
+- intent: ask_mood
+  examples: |
+    - ustedes como estan?
+    - como les va?
+    - que tal todo?
+    - como estan?
+    - como se sienten?
+    - todo bien?
+    - que cuentan?
+    - como andan?
+    - que tal estan?
+
+- intent: ask_explanation
+  examples: |
+    - porque?
+    - por que?
+    - contame sobre eso
+    - con que razon
+    - que te paso?
+    - cual es la razon
+    - que pasa?
+    - contame mas
+    - por que
+
+- intent: ask_what_you_doing
+  examples: |
+    - que estas haciendo?
+    - que andas haciendo?
+    - que haciendo?
+    - en que andas?
+    - me contas que haces
+    - que haces?
+    - contame que haces
+    - estas haciendo algo
+
+- intent: out_of_scope
+  examples: |
+    - Quien es el presidente?
+    - Cuanto es 2+2?
+    - Que lindo dia
+    - Tengo hambre
+    - como se llama tu perro
+    - que auto tenes?
+    - aguante economicas
+    - que comiste hoy?
+    - te gusta el futbol?
+    - me recomendas una serie
+    - te gustaria que nos juntemos
+
+- intent: debate_attempt
+  examples: |
+    - que opinan sobre [cambios a guarani](debate_topic)
+    - que saben acerca de [inteligencia artificial](debate_topic)
+    - que piensan de [robotica](debate_topic)
+    - quien sabe sobre [machine learning](debate_topic)
+    - saben algo sobre [agentes inteligentes](debate_topic)
+    - en que quedamos con [cambios al guarani](debate_topic)
+    - que saben sobre [mundial de futbol](debate_topic)
+    - que piensan de [lionel messi](debate_topic)
+    - que opinan de [windows](debate_topic)
+    - vieron [robots que juegan al futbol](debate_topic)
+    - quien conoce acerca de [prolog](debate_topic)
+    - saben sobre [computacion afectiva](debate_topic)
+
+- intent: schedule_meeting_attempt
+  examples: |
+    - estan libres el [lunes](weekday) a la [tarde](time_of_day)
+    - estan libres [jueves](weekday)
+    - les queda [martes](weekday) a la [mañana](time_of_day)
+    - les va juntarse el [viernes](weekday)
+    - como les queda [miercoles](weekday) a la [noche](time_of_day)
+    - estan libres [domingo] a las [12](hour_of_day)
+    - les queda a las [15](hour_of_day)
+    - les va a las [8](hour_of_day)
+    - estan libres a las [9](hour_of_day)
+    - y que tal el [miercoles](weekday)
+
+- intent: when_free_for_meeting
+  examples: |
+    - cuando estan libres?
+    - cuando les queda comodo juntarnos?
+    - cuando nos juntamos?
+    - nos tenemos que juntar
+    - hay que juntarse
+    - cuando pueden reunirse?
+    - cuando nos reunimos?
+    - que dias estan libres?
+
+- intent: tell_hour_of_day
+  examples: |
+    - a las [12](hour_of_day)
+    - mas o menos [15](hour_of_day)
+    - a las [3](hour_of_day)
+    - les parece [6](hour_of_day)
+    - que tal [8](hour_of_day)
+    - tipo [15](hour_of_day)
+
+- intent: we_should_meet
+  examples: |
+    - tenemos que juntarnos
+    - hay que juntarse
+    - cuando nos juntamos
+    - nos juntamos?
+    - cuando nos reunimos?
+    - nos reunimos uno de estos dias
+
+- intent: ask_about_coming_meetings
+  examples: |
+    - proximas reuniones
+    - proximos eventos
+    - alguien sabe cuando es la proxima reunion
+    - cuando es la proxima reunion
+    - que eventos se vienen
+
+- intent: what_is_your_opinion
+  examples: |
+    - que opinan de eso
+    - que opinan sobre eso
+    - que piensan de eso
+    - cual es tu opinion
+    - que opinan
+
+- intent: tell_me_more
+  examples: |
+    - contame mas
+    - contame mas sobre eso
+    - que mas piensan
+    - que mas me podes decir
+    - que mas me podes contar
+    - que otra cosa piensan
+
+- intent: can_attend_meeting
+  examples: |
+    - Puedo
+    - Puedo
+    - yo puedo
+    - me parece bien
+    - puedo
+    - Yo puedo
+
+- intent: can_not_attend_meeting
+  examples: |
+    - No puedo
+    - yo no puedo
+    - no puedo
+    - no me queda
+    - no llego
+
+- lookup: debate_topic
+  examples: |
+    - cambios a guarani
+    - hacer modificaciones a guarani
+    - inteligencia artificial
+    - robotica
+    - agentes intelegentes
+    - robots que juegan al futbol
+    - windows
+    - linux
+    - machine learning
+    - redes neuronales
+    - mundial de futbol
+    - lionel messi
+    - chatbots
+
+- lookup: hour_of_day
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+
+- lookup: weekday
+  examples: |
+    - lunes
+    - martes
+    - miercoles
+    - jueves
+    - viernes
+    - sabado
+    - domingo
+
+- lookup: time_of_day
+  examples: |
+    - tarde
+    - mañana
+    - noche

@@ -1,0 +1,183 @@
+version: "3.1"
+
+intents:
+  - greet
+  - bot_challenge
+  - out_of_scope
+  - ask_mood
+  - great_joke
+  - user_disliked
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - mood_angry
+  - goodbye
+  - thanks_received
+  - debate_attempt
+  - when_free_for_meeting
+  - schedule_meeting_attempt
+  - tell_hour_of_day
+  - we_should_meet
+  - ask_about_coming_meetings
+  - what_is_your_opinion
+  - tell_me_more
+  - ask_explanation
+  - can_attend_meeting
+  - can_not_attend_meeting
+
+  - its_better
+  - dont_know
+  - ask_what_you_doing
+
+entities:
+  - debate_topic
+  - weekday
+  - time_of_day
+  - hour_of_day
+
+actions:
+  - action_tell_joke
+  - action_despedida
+  - action_knows_about_topic
+  - action_check_if_free
+  - action_check_when_free
+  - action_answer_meeting_proposal
+  - action_pin_topic_question
+  - action_schedule_meeting
+  - action_glad_you_liked
+  - action_incoming_meetings
+  - action_give_opinion
+  - action_give_argument_for_opinion
+  - action_send_support_msg_to_user
+  - action_ask_that_time_works
+
+slots:
+  free_to_meet:
+    type: bool
+    influence_conversation: true
+    initial_value: false
+    mappings:
+      - type: custom
+  weekday:
+    type: text
+    influence_conversation: true
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: weekday
+  time_of_day:
+    type: text
+    influence_conversation: true
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: time_of_day
+  hour_of_day:
+    type: text
+    influence_conversation: true
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: hour_of_day
+  mood:
+    type: categorical
+    influence_conversation: true
+    values:
+      - happy
+      - sad
+      - angry
+    mappings:
+      - type: from_intent
+        intent: mood_great
+        value: happy
+      - type: from_intent
+        intent: mood_unhappy
+        value: sad
+      - type: from_intent
+        intent: mood_angry
+        value: angry
+  topic_to_discuss:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: debate_topic
+  topic_code:
+    type: text
+    initial_value: "-1"
+    mappings:
+      - type: custom
+  last_opinion_given:
+    type: text
+    initial_value: "0"
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+  - text: "Hola!"
+  - text: "Buenos dias"
+
+  utter_im_good:
+  - text: "Todo bien, gracias"
+
+  utter_ask_mood:
+  - text: "como va?"
+  - text: "como estan hoy?"
+  - text: "que tal todo?"
+  - text: "como andan?"
+
+  utter_ask_you_liked:
+  - text: "Que te parecio?"
+
+  utter_iamnotabot:
+  - text: "Yo no soy un bot"
+
+  utter_out_of_scope:
+  - text: "Perdon pero no se nada de eso"
+  - text: "Honestamente de eso no tengo idea"
+  - text: "Perdona pero no sabria decirte"
+
+  utter_default:
+  - text: "Perdona, no entendi. Me podes repetir"
+  - text: "No entendi, me explicas de vuelta"
+  - text: "No te segui, me lo podras repetir"
+
+  utter_i_tried:
+  - text: "Bueno, lo intente"
+
+  utter_calm_down:
+  - text: "Tranqui, tomatelo con calma"
+  - text: "Esta bien sentirse asi, solo respira hondo"
+  
+  utter_thank_back:
+  - text: "No hay de que"
+
+  utter_glad_you_liked:
+  - text: "Buenisimo, me alegro que te gusto"
+
+  utter_happy:
+  - text: "Buenisimo!"
+
+  utter_ask_hour_of_day:
+  - text: "Mas o menos a que hora seria?"
+
+  utter_nevermind:
+  - text: "Bueno, gracias igual"
+  - text: "Ok, no pasa nada"
+
+  utter_did_that_help:
+  - text: "Que les parece?"
+
+  utter_no_problem:
+  - text: "No hay drama, ahora lo arreglamos bien"
+
+
+  utter_i_swear:
+  - text: "Te lo juro"
+  - text: "Jamas mentiria sobre eso"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

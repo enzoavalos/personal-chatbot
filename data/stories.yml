@@ -1,0 +1,161 @@
+version: "3.1"
+
+stories:
+
+- story: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default
+    - intent: deny
+    - action: utter_nevermind
+
+- story: begin convo
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_mood
+
+- story: how im doing
+  steps:
+    - intent: ask_mood
+    - action: utter_im_good
+
+- story: happy path
+  steps:
+  - intent: mood_great
+  - slot_was_set:
+    - mood: happy
+  - action: utter_happy
+
+- story: sad path
+  steps:
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: sad
+  - action: action_tell_joke
+  - action: utter_ask_you_liked
+  - checkpoint: get_joke_response
+
+- story: joke worked
+  steps:
+  - checkpoint: get_joke_response
+  - or:
+    - intent: mood_great
+    - intent: great_joke
+  - action: action_glad_you_liked
+
+- story: joke worked 2
+  steps:
+  - checkpoint: get_joke_response
+  - intent: thanks_received
+  - action: utter_glad_you_liked
+
+- story: joke did not work
+  steps:
+  - checkpoint: get_joke_response
+  - or:
+    - intent: deny
+    - intent: user_disliked
+  - action: utter_i_tried
+  - action: action_send_support_msg_to_user
+
+- story: angry path
+  steps:
+  - intent: mood_angry
+  - slot_was_set:
+    - mood: angry
+  - action: utter_calm_down
+  - intent: thanks_received
+  - action: action_glad_you_liked
+
+- story: attempt to start a debate
+  steps:
+  - intent: debate_attempt
+  - slot_was_set:
+    - topic_to_discuss
+  - action: action_knows_about_topic
+  - action: utter_did_that_help
+  - checkpoint: get_info_helped_response
+
+- story: info about topic was helpful
+  steps:
+  - checkpoint: get_info_helped_response
+  - or:
+    - intent: affirm
+    - intent: thanks_received
+  - action: utter_happy
+
+- story: info about topic was not helpful
+  steps:
+  - checkpoint: get_info_helped_response
+  - or:
+    - intent: deny
+    - intent: user_disliked
+  - action: action_pin_topic_question
+
+- story: user ask for opinion on a subject
+  steps:
+  - or: 
+    - intent: what_is_your_opinion
+    - intent: tell_me_more
+  - slot_was_set:
+    - topic_to_discuss
+  - action: action_give_opinion
+
+- story: user ask for reason behind opinion
+  steps:
+  - intent: ask_explanation
+  - slot_was_set:
+    - topic_to_discuss
+  - action: action_give_argument_for_opinion
+
+- story: suggests we should meet 1
+  steps:
+  - intent: we_should_meet
+  - action: action_answer_meeting_proposal
+  - or:
+    - intent: affirm
+    - intent: thanks_received
+    - intent: mood_great
+  - action: utter_thank_back
+
+- story: tries to schedule a meeting 1
+  steps:
+  - intent: schedule_meeting_attempt
+  - or:
+    - slot_was_set:
+      - time_of_day
+  - action: utter_ask_hour_of_day
+  - intent: tell_hour_of_day
+  - slot_was_set:
+    - hour_of_day
+  - action: action_check_if_free
+
+- story: tries to schedule a meeting 2
+  steps:
+  - intent: schedule_meeting_attempt
+  - slot_was_set:
+    - hour_of_day
+  - action: action_check_if_free
+
+- story: meeting is scheduled succesfuly
+  steps:
+  - intent: can_attend_meeting
+  - action: action_schedule_meeting
+
+- story: meeting is not scheduled succesfuly
+  steps:
+  - intent: can_not_attend_meeting
+  - slot_was_set:
+    - free_to_meet: true
+  - action: utter_no_problem
+
+- story: asks when are we free
+  steps:
+  - intent: when_free_for_meeting
+  - action: action_check_when_free
+
+- story: ask about incoming meetings
+  steps:
+  - intent: ask_about_coming_meetings
+  - action: action_incoming_meetings

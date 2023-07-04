@@ -1,0 +1,33 @@
+{
+    "meetings": {
+        "domingo": {
+            "time": "20"
+        },
+        "viernes": {
+            "time": "20"
+        }
+    },
+    "msg_of_interest": {
+        "update_id": 362573415,
+        "message": {
+            "message_id": 2712,
+            "from": {
+                "id": 5620418005,
+                "is_bot": false,
+                "first_name": "Enzo",
+                "username": "enzo_avalos",
+                "language_code": "es"
+            },
+            "chat": {
+                "id": -1001874058919,
+                "title": "Los bots",
+                "type": "supergroup"
+            },
+            "date": 1667858357,
+            "text": "que piensan acerca de hacer cambios en el guarani"
+        }
+    },
+    "meeting_scheduling": {
+        "participants": 1
+    }
+}
