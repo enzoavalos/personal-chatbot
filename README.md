@@ -1,7 +1,7 @@
 # Rasa chatbot
 ### Chatbot that pretends to be me!
 <img src="https://github.com/enzoavalos/personal-chatbot/blob/main/screenshots/profile-pic.png">
-You can find it in [Telegram](https://web.telegram.org/k/) by the name @pseudo_human_bot!   
+You can find it in <a href="https://telegram.org">Telegram</a> by the name @pseudo_human_bot!   
 Although I must say that it's not running now, so you won't get any answer.
 
 ## About the project
