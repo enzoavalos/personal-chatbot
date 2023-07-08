@@ -18,8 +18,6 @@ from .wikipediaApi import getInfoAboutTopic
 import requests
 from urllib.request import urlopen
 
-TOKEN = "5503145204:AAH2yi7Pr9owaVgUc2iAqcrBwNtt9EM0XbQ"
-
 class ActionTellJoke(Action):
     def name(self) -> Text:
        return "action_tell_joke"
