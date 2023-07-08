@@ -1,6 +1,6 @@
 # Rasa chatbot
 ### Chatbot that pretends to be me!
-![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/59fd249d-2a8e-46e3-94b6-29680a77dfc6)   
+![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/768f5f2c-9723-4b26-aaf3-90adf026a21d)
 You can find it in [Telegram](https://web.telegram.org/k/) by the name @pseudo_human_bot!   
 Although I must say that it's not running now, so you won't get any answer.
 
@@ -12,8 +12,8 @@ The scope of the agent is set to be within a Telegram study group, where it must
 Lastly, the bot has the ability to debate about topics that come up in the conversation, showing its knowledge and even giving its own opinion if the topic being discussed is known to him.
 
 ## Screenshots
-![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/7866ccc7-7d70-4552-8017-9a5ffe119511)
-![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/134d9b12-d044-4742-8728-2fb80391e0c1)
+![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/4e2158dd-5cd3-4bb9-88fb-1b43ad250761)
+![image](https://github.com/enzoavalos/personal-chatbot/assets/82390064/7a8f7a3b-0863-4a00-8f0e-7a3326f58275)
 
 
 ## Technologies used
